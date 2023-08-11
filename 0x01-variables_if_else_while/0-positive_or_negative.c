@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * main - entry point
+g* main - entry point
  *
  * Description: false or true validation
  *
@@ -17,10 +17,10 @@ int main(void)
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	if (n == 0)
-		printf("%i is zero", n);
+		printf("%i is zero ", n);
 	else if (n > 0)
-		printf("%i is positive", n);
+		printf("%i is positive ", n);
 	else
-		printf("%i is negative", n);
+		printf("%i is negative ", n);
 	return (0);
 }
