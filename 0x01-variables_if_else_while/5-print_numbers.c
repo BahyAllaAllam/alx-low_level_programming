@@ -16,8 +16,8 @@ int main(void)
 
 	while (d <= 9)
 	{
-		printf("%d", c);
-		c++;
+		printf("%i", d);
+		d++;
 	}
 
 	putchar('\n');
