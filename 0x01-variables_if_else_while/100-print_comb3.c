@@ -24,14 +24,14 @@ int main(void)
 				putchar(d + 48);
 				putchar(c + 48);
 
+				if (d + c != 17)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+
 			}
 			c++;
-		}
-
-		if (d != 9)
-		{
-			putchar(',');
-			putchar(' ');
 		}
 		d++;
 	}
