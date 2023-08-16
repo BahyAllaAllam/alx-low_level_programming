@@ -16,9 +16,9 @@ void times_table(void)
 	{
 		for (num2 = 0; num2 <= 9; num2++)
 		{
-			int res
+			int res;
 			res = num1 * num2;
-			char res
+			char res;
 			_putchar(res + 48);
 			if (res == 81)
 			{
