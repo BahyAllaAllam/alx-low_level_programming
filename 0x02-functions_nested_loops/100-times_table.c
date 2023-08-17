@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * print_times_table - entry point.
+ * print_times_table - entry po
+ * int.
  *
  * @n: false or true validation.
  *
@@ -37,6 +38,7 @@ void print_times_table(int n)
 					_putchar((res / 10) + 48);
 				_putchar((res % 10) + 48);
 			}
-		}	_putchar('\n');
+			_putchar('\n');
+		}
 	}
 }
