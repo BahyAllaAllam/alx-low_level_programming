@@ -13,7 +13,7 @@ void rev_string(char *s)
 {
 	int i = 0;
 	int len = strlen(s) - 1;
-	char new_s;
+	char new_s[];
 
 	while (i <= s[len + 1])
 	{
@@ -21,5 +21,5 @@ void rev_string(char *s)
 		len--;
 		i++;
 	}
-	return (new_s);
+	printf("%s", new_s);
 }
