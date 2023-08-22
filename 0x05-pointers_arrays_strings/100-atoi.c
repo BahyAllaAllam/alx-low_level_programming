@@ -41,7 +41,7 @@ int _atoi(char *s)
 	int start, i = 0, sign = 1;
 	char *x;
 
-	if (atoi(s) == 0 && len != 0 && s[0] != 72)
+	if (atoi(s) == 0 && len != -1 && s[0] != 72)
 	{
 		while (i < len)
 		{
