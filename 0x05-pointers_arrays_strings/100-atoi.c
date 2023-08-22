@@ -12,5 +12,18 @@
 
 int _atoi(char *s)
 {
-	return (atoi(s));
+	unsigned int n = 0;
+	int x = 1;
+
+	do {
+		if (*s == '-')
+			x = x * -1;
+		else if (*s >= '0' && *s <= '9')
+			x = (x * 10) + (*s - '0');
+		else if (n > 0)
+			break;
+	} while (*s++);
+
+	return (n * x);
+
 }
