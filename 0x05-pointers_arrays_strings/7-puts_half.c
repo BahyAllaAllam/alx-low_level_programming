@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * puts_half - check the code
@@ -10,7 +11,7 @@
 
 void puts_half(char *str)
 {
-	int i = 0, len = strlen(str) / 2;
+	int len = strlen(str) / 2;
 
 	while (str[len])
 	{
