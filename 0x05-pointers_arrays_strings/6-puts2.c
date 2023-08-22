@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * puts2 - check the code
@@ -11,11 +10,11 @@
 
 void puts2(char *str)
 {
-	int i = 0, len = strlen(s) - 1;
+	int i = 0, len = strlen(str) - 1;
 
-	while (s[i])
+	while (str[i])
 	{
-		putchar(s[i]);
+		putchar(str[i]);
 		i = i + 2;
 	}
 }
