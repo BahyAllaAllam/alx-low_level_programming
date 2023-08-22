@@ -4,12 +4,36 @@
 #include <string.h>
 
 /**
+ * sliceString - sliceString
+ *
+ * @str: str
+ *
+ * @start: start
+ *
+ * @end: end
+ *
  * _atoi - check the code
  *
  * @s: s
  *
  * Return: Always 0.
  */
+
+char *sliceString(char *str, int start, int end)
+{
+	int i;
+	int size = (end - start) + 2;
+	char *output = (char *)malloc(size * sizeof(char));
+
+	for (i = 0; start <= end; start++, i++)
+	{
+		output[i] = str[start];
+	}
+
+	output[size] = '\0';
+
+	return (output);
+}
 
 int _atoi(char *s)
 {
@@ -43,7 +67,7 @@ int _atoi(char *s)
 		{
 			putchar('-');
 		}
-		x = *sliceString(s, start, len);
+		x = sliceString(s, start, len);
 
 		return (atoi(x));
 	}
