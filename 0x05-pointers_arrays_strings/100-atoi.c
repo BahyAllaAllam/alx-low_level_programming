@@ -17,7 +17,7 @@ int _atoi(char *s)
 
 	do {
 		if (*s == '-')
-			x = x * -1;
+			x *= -1;
 		else if (*s >= '0' && *s <= '9')
 			x = (x * 10) + (*s - '0');
 		else if (n > 0)
