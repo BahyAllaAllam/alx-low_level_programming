@@ -14,12 +14,12 @@
 int _atoi(char *s)
 {
 	int len = strlen(s) - 1;
-	int start, sign = 1;
+	int start, i = 0, sign = 1;
 	char *x;
 
 	if (atoi(s) == 0)
 	{
-		for (int i = 0; i < len; i++)
+		while (i < len)
 		{
 			if (s[i] >= '0' && s[i] <= '9')
 			{
@@ -37,6 +37,7 @@ int _atoi(char *s)
 					sign = sign * 1;
 				}
 			}
+			i++;
 		}
 		if (sign == -1)
 		{
