@@ -43,7 +43,7 @@ int _atoi(char *s)
 		{
 			putchar('-');
 		}
-		x = sliceString(s, start, len);
+		x = _sliceString(s, start, len);
 
 		return (atoi(x));
 	}
