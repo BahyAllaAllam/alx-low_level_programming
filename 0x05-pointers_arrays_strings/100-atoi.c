@@ -12,10 +12,6 @@
  *
  * @end: end
  *
- * _atoi - check the code
- *
- * @s: s
- *
  * Return: Always 0.
  */
 
@@ -34,6 +30,14 @@ char *sliceString(char *str, int start, int end)
 
 	return (output);
 }
+
+/**
+ * _atoi - check the code
+ *
+ * @s: s
+ *
+ * Return: Always 0.
+ */
 
 int _atoi(char *s)
 {
