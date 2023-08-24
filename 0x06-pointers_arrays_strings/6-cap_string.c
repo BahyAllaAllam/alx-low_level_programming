@@ -1,5 +1,30 @@
 #include "main.h"
 #include <string.h>
+#include <ctype.h>
+
+/**
+ * isDeli - check the code
+ *
+ * @c: c
+ *
+ * Return: Always 0.
+ */
+
+int isDeli(char c)
+{
+	int i;
+	char deli[] = " \t\n,.;!?\"(){}";
+
+	for (i = 0; i < 12; i++)
+	{
+		if (c == deli[i])
+		{
+			return (1);
+		}
+	}
+
+	return (0);
+}
 
 /**
  * cap_string - check the code
@@ -11,21 +36,26 @@
 
 char *cap_string(char *s)
 {
-	int i;
+	char *p = s;
+	int foundDeli = 1;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (*s)
 	{
-		if (s[i] == 32 || s[i] == 9 || s[i] == '\n' || s[i] == ',' || s[i] == ';' || s[i] == '.' || s[i] == '!' || s[i] == '?' || s[i] == '"' || s[i] == '(' || s[i] == ')' || s[i] == '{' || s[i] == '}')
+		if (isDeli(*s))
 		{
-			int n = 1;
-			while (s[i + n] >= 97 && s[i + n] <= 122)
-			{
-				s[i + n] = s[i + n] - 32;
-				n++;
-				break;
-			}
+			foundDeli = 1;
 		}
+		else if (islower(*s) && foundDeli)
+		{
+			*s -= 32;
+			foundDeli = 0;
+		}
+		else
+		{
+			foundDeli = 0;
+		}
+		s++;
 	}
 
-	return (s);
+	return (p);
 }
