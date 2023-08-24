@@ -17,7 +17,9 @@ char *rot13(char *s)
 
 	while (*s)
 	{
-		for (int i = 0; i < 52; i++)
+		int i;
+
+		for (i = 0; i < 52; i++)
 		{
 			if (*s == rot13[i])
 			{
