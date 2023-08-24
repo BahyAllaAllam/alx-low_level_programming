@@ -18,7 +18,7 @@ char *leet(char *s)
 
 	while (*s)
 	{
-		for (i= 0; i < sizeof(key) / sizeof(char); i++)
+		for (i = 0; i < sizeof(key) / sizeof(char); i++)
 		{
 			if (*s == key[i] || *s == key[i] + 32)
 			{
