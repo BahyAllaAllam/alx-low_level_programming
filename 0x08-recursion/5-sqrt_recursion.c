@@ -1,6 +1,24 @@
-#include <math.h>
 #include "main.h"
-#include <stdio.h>
+
+/**
+ * sqr - check the code
+ *
+ * @x: n
+ *
+ * @v: v
+ *
+ * Return: Always 0.
+ */
+
+int sqr(int x, int v)
+{
+	if (v * v == x)
+		return (v);
+	else if (v * v < x)
+		return (sqr(x, v + 1));
+
+	return (-1);
+}
 
 /**
  * _sqrt_recursion - check the code
@@ -12,11 +30,5 @@
 
 int _sqrt_recursion(int n)
 {
-	int s = sqrt(n);
-
-	if (n % s != 0)
-	{
-		return (-1);
-	}
-	return (s);
+	return (sqr(n, 1));
 }
