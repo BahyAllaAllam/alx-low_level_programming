@@ -8,6 +8,8 @@
  *
  * Return: Always 0.
  */
+int inception(char *s1, char *s2);
+int wildcmp(char *s1, char *s2);
 
 char *move_past_star(char *s2)
 {
