@@ -2,6 +2,26 @@
 #include <string.h>
 
 /**
+ * check_str - check the code
+ *
+ * @s: s
+ * @i: i
+ * @e: e
+ * @m: m
+ *
+ * Return: Always 0.
+ */
+
+int check_str(char *s, int i, int e, int m)
+{
+	if ((i == e && m != 0) || (i == e + 1 && m == 0))
+		return (1);
+	else if (s[i] != s[e])
+		return (0);
+	return (check_str(s, i + 1, e - 1, m));
+}
+
+/**
  * is_palindrome - check the code
  *
  * @s: s
@@ -11,15 +31,7 @@
 
 int is_palindrome(char *s)
 {
-	int len = strlen(s) - 1, i;
+	int len = strlen(s) - 1;
 
-	if (!s)
-		return (1);
-	
-	for (i = 0; i <= len; i++)
-	{
-		if (s[i] != s[len - 1])
-			return (0);
-	}
-	return (1);
+	return (check_str(s, 0, len, end % 2));
 }
