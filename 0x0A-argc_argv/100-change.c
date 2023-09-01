@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 					break;
 			}
 		}
-		printf("%d", lc);
+		printf("%d\n", lc);
 	}
 	else
 	{
