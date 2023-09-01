@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - prints buffer in hexa
+ *
+ * @argc: the address of memory to print
+ *
+ * @argv: the size of the memory to print
+ *
+ * Return: Nothing.
+ */
+
+int main(int argc, char *argv[])
+{
+	int sum = 0;
+
+	while (--argc)
+	{
+		char *c = argv[argc];
+
+		if (*c < '0' || *c > '9')
+		{
+			return (printf("Error\n"), 1);
+		}
+		sum += atoi(c);
+	}
+	printf("%d\n", sum);
+	return (0);
+}
