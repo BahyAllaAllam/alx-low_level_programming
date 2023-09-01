@@ -30,7 +30,10 @@ int main(int argc, char *argv[])
 		}
 		printf("%d", lc);
 	}
-	return (printf("Error\n"), 1);
+	else
+	{
+		return (printf("Error\n"), 1);
+	}
 
 	return (0);
 }
