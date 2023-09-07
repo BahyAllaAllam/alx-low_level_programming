@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "main.h"
 
 /**
  * _atoi - check the code for
@@ -44,7 +45,7 @@ void print_int(unsigned long int n)
 	for (; divi >= 1; n %= divi, divi /= 10)
 	{
 		res = n / divi;
-		putchar('0' + res);
+		_putchar('0' + res);
 	}
 }
 
