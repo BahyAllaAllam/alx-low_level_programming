@@ -16,7 +16,7 @@ char *_memset(char *s, char b, unsigned int z)
 	char *p = s;
 
 	while (z--)
-		*s++ = b;
+		p[z] = b;
 
 	return (p);
 }
@@ -31,7 +31,7 @@ char *_memset(char *s, char b, unsigned int z)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *ptr;
+	void *ptr;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
@@ -41,9 +41,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (ptr == 0)
 		return (NULL);
 
-	nmemb *= size;
-	while (nmemb--)
-		p[nmemb] = 0;
+	_memset(ptr, 0, size * nmemb);
 
 	return (ptr);
 }
