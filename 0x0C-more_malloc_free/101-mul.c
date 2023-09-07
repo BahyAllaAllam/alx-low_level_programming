@@ -4,25 +4,6 @@
 #include "main.h"
 
 /**
- * _puts - check the code for
- *
- * @str: sr
- *
- * Return: Always 0.
-*/
-
-void _puts(char *str)
-{
-	int i = 0;
-
-	while (str[i])
-	{
-		_putchar(str[i]);
-		i++;
-	}
-}
-
-/**
  * _atoi - check the code for
  *
  * @s: s
