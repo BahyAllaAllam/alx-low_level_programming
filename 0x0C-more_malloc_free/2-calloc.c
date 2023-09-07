@@ -6,6 +6,7 @@
  * _memset - prints buffer in hexa
  * @s: the address of memory to print
  * @z: the size of the memory to print
+ * @b:b
  *
  * Return: Nothing.
 */
@@ -30,17 +31,19 @@ char *_memset(char *s, char b, unsigned int z)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr;
+	char *ptr;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	ptr = malloc(sizeof(int) * nmemb);
+	ptr = malloc(size * nmemb);
 
 	if (ptr == 0)
 		return (NULL);
 
-	_memset(ptr, 0, sizeof(int) * nmemb);
+	nmemb *= size;
+	while (nmemb--)
+		p[nmemb] = 0;
 
 	return (ptr);
 }
