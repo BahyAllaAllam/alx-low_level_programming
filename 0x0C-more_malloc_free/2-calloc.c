@@ -10,12 +10,12 @@
  * Return: Nothing.
 */
 
-char *_memset(char *s, unsigned int z)
+char *_memset(char *s, char b, unsigned int z)
 {
 	char *p = s;
 
 	while (z--)
-		*s++ = 0;
+		*s++ = b;
 
 	return (p);
 }
@@ -40,7 +40,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (ptr == 0)
 		return (NULL);
 
-	_memset(ptr, sizeof(int) * nmemb);
+	_memset(ptr, 0, sizeof(int) * nmemb);
 
 	return (ptr);
 }
