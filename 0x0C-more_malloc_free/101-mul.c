@@ -6,18 +6,18 @@
 /**
  * _puts - check the code for
  *
- * @s: s
+ * @str: sr
  *
  * Return: Always 0.
 */
 
-void _puts(char *s)
+void _puts(char *str)
 {
 	int i = 0;
 
-	while (s[i])
+	while (str[i])
 	{
-		_putchar(s[i]);
+		_putchar(str[i]);
 		i++;
 	}
 }
@@ -35,15 +35,15 @@ int _atoi(const char *s)
 	int si = 1;
 	unsigned long int res = 0, fn, i;
 
-	for (fn = 0; !(s[fn] >= '0' && s[fn] <= '9'); fn++)
+	for (fn = 0; !(s[fn] >= 48 && s[fn] <= 57); fn++)
 	{
 		if (s[fn] == '-')
 			si *= -1;
 	}
-	for (i = fn; s[i] >= '0' && s[i] <= '9'; i++)
+	for (i = fn; s[i] >= 48 && s[i] <= 57; i++)
 	{
 		res *= 10;
-		res += (s[i] - '0');
+		res += (s[i] - 48);
 	}
 	return (si * res);
 }
