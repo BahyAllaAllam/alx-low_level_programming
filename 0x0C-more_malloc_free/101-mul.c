@@ -4,7 +4,27 @@
 #include "main.h"
 
 /**
+ * _puts - check the code for
+ *
+ * @s: s
+ *
+ * Return: Always 0.
+*/
+
+void _puts(char *s)
+{
+	int i = 0;
+
+	while (s[i])
+	{
+		_putchar(s[i]);
+		i++;
+	}
+}
+
+/**
  * _atoi - check the code for
+ *
  * @s: s
  *
  * Return: Always 0.
@@ -25,7 +45,7 @@ int _atoi(const char *s)
 		res *= 10;
 		res += (s[i] - '0');
 	}
-	return (sign * res);
+	return (si * res);
 }
 
 /**
@@ -62,11 +82,11 @@ int main(int argc, char const *argv[])
 
 	if (argc != 3)
 	{
-		puts("Error\n");
+		_puts("Error ");
 		exit(98);
 	}
 	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	putchar('\n');
+	_putchar('\n');
 
 	return (0);
 }
