@@ -17,21 +17,21 @@ void print_all(const char * const format, ...)
 	va_start(li, format);
 	if (format)
 	{
-		while (format && format[i])
+		while (format[i])
 		{
 			switch (format[i])
 			{
 				case 'c':
-					printf("%s%c", sep, va_arg(list, int));
+					printf("%s%c", sep, va_arg(li, int));
 					break;
 				case 'i':
-					printf("%s%d", sep, va_arg(list, int));
+					printf("%s%d", sep, va_arg(li, int));
 					break;
 				case 'f':
-					printf("%s%f", sep, va_arg(lst, double));
+					printf("%s%f", sep, va_arg(li, double));
 					break;
 				case 's':
-					str = va_arg(list, char *);
+					str = va_arg(li, char *);
 					if (!str)
 						str = "(nil)";
 					printf("%s%s", sep, str);
@@ -45,5 +45,5 @@ void print_all(const char * const format, ...)
 		}
 	}
 	printf("\n");
-	va_end(ptr);
+	va_end(li);
 }
