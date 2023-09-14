@@ -2,56 +2,6 @@
 #include <stdarg.h>
 
 /**
- * format_char - check the code
- * @separator: separator
- * @ptr: ptr
- *
- * Return: void
-*/
-void format_char(char *separator, va_list ptr)
-{
-	pritnf("%s%c", separator, va_arg(ptr, int));
-}
-/**
- * format_int - check the code
- * @separator: separator
- * @ptr: ptr
- *
- * Return: void
-*/
-void format_int(char *separator, va_list ptr)
-{
-	printf("%s%d", separator, va_arg(ptr, int));
-}
-/**
- * format_float - check the code
- * @separator: separator
- * @ptr: ptr
- *
- * Return: void
-*/
-void format_float(char *separator, va_list ptr)
-{
-	printf("%s%f", separator, va_arg(ptr, double));
-}
-/**
- * format_string - check the code
- * @separator: separator
- * @ptr: ptr
- *
- * Return: void
-*/
-void format_string(char *separator, va_list ptr)
-{
-	char *str = va_arg(ptr, char *);
-
-	switch ((int)(!str))
-		case 1:
-			str = "(nil)";
-
-	printf("%s%s", separator, str);
-}
-/**
  * print_all - check the code
  * @format: format
  *
@@ -59,30 +9,40 @@ void format_string(char *separator, va_list ptr)
 */
 void print_all(const char * const format, ...)
 {
-	int i = 0, j;
-	char *sep = "";
-	va_list ptr;
-	token_t tokens[] = {
-		{"c", format_char},
-		{"i", format_int},
-		{"f", format_float},
-		{"s", format_string},
-		{NULL, NULL}
-	};
-	va_start(ptr, format);
-	while (format && format[i])
+	int i = 0;
+	char *str, *sep = "";
+
+	va_list li;
+
+	va_start(li, format);
+	if (format)
 	{
-		j = 0;
-		while (tokens[j].token)
+		while (format && format[i])
 		{
-			if (format[i] == tokens[j].token[0])
+			switch (format[i])
 			{
-				tokens[j].f(sep, ptr);
-				sep = ", ";
+				case 'c':
+					printf("%s%c", sep, va_arg(list, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(list, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(lst, double));
+					break;
+				case 's':
+					str = va_arg(list, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+					break;
+				default:
+					i++;
+					continue;
 			}
-			j++;
+			sep = ", ";
+			i++;
 		}
-		i++
 	}
 	printf("\n");
 	va_end(ptr);
