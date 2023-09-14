@@ -8,7 +8,7 @@
 typedef struct token
 {
 	char *token;
-	void (*f)(char *, val_list);
+	void (*f)(char *, va_list);
 } token_t;
 
 int _putchar(char c);
