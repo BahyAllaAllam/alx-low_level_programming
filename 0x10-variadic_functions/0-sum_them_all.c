@@ -12,7 +12,7 @@ int sum_them_all(const unsigned int n, ...)
 	int i = n, sum = 0;
 	va_list ptr;
 
-	if(!n)
+	if (!n)
 	{
 		return (0);
 	}
