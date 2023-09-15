@@ -1,4 +1,4 @@
-#include "3-calc.h"
+#include "calc.h"
 #include "function_pointers.h"
 #include <stdio.h>
 #include <stdlib.h>
