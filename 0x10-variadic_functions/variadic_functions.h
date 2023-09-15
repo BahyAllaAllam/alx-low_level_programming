@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * struct token - struct token
+ *
+ * @token: token
+ * @f: f
+*/
 typedef struct token
 {
 	char *token;
