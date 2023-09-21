@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <string.h>
 
 /**
  * print_list - check the code
@@ -13,7 +12,8 @@ size_t print_list(const list_t *h)
 
 	while (h)
 	{
-		printf("[%d] %s\n", strlen((*h).str), h->str ? h->str : "(nil)");
+		int len = strlen((*h).str);
+		printf("[%d] %s\n", len, h->str ? h->str : "(nil)");
 		h = h->next;
 		i++;
 	}
