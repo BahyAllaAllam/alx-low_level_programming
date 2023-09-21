@@ -24,10 +24,10 @@ list_t *add_node_end(list_t **head, const char *str)
 		n_t->len = strlen(str);
 		n_t->next = NULL;
 	}
-	while (head)
+	while (*head)
 	{
-		head = head->next;
+		*head = *head->next;
 	}
-	head->next = n_t;
+	*head->next = n_t;
 	return (n_t);
 }
