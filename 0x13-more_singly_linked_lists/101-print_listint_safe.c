@@ -3,14 +3,14 @@
 #include <stdio.h>
 
 /**
- * rm - check the code
+ * r - check the code
  * @list: head
  * @size: size
  * @new: new
  *
  * Return: Always 0.
 */
-const listint_t **rm(const listint_t **list, size_t size, const listint_t *new)
+const listint_t **r(const listint_t **list, size_t size, const listint_t *new)
 {
 	const listint_t **new_list;
 	size_t i = 0;
@@ -54,7 +54,7 @@ size_t print_listint_safe(const listint_t *head)
 			i++;
 		}
 		num++;
-		list = rm(list, num, head);
+		list = r(list, num, head);
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next
 	}
