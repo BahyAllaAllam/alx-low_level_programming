@@ -23,16 +23,17 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = new_n;
 		return (new_n);
 	}
-	else
+	while (temp)
 	{
-		while (temp && i < idx - 1)
+		if (i == idx - 1)
 		{
-			temp = temp->next;
-			i++;
+			new_n->next = temp->next;
+			temp->next = new_n;
+			return (new_n);
 		}
-		new_n->next = temp->next;
-		temp->next = new_n;
-		return (new_n);
+		temp = temp->next;
+		i++;
 	}
+	free(new_n);
 	return (NULL);
 }
