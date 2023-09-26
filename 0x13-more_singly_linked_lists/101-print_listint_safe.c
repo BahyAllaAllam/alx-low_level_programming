@@ -1,6 +1,7 @@
 #include "lists.h"
 #include <stdlib.h>
 #include <stdio.h>
+
 /**
  * rm - check the code
  * @list: head
@@ -9,7 +10,7 @@
  *
  * Return: Always 0.
 */
-const listint_t **rm(const listint_t **list, size_t size, const listint_t *new)
+const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
 {
 	const listint_t **new_list;
 	size_t i = 0;
@@ -37,26 +38,26 @@ const listint_t **rm(const listint_t **list, size_t size, const listint_t *new)
 */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i = 0, n = 0;
+	size_t i = 0, num = 0;
 	const listint_t **list = NULL;
 
-	while (head)
+	while (head != NULL)
 	{
-		while (i < n)
+		while (i < num)
 		{
 			if (head == list[i])
 			{
 				printf("-> [%p] %d\n", (void *)head, head->n);
 				free(list);
-				return (n);
+				return (num);
 			}
 			i++;
 		}
-		n++;
-		list = rm(list, n, head);
+		num++;
+		list = _r(list, num, head);
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next
 	}
 	free(list);
-	return (n);
+	return (num);
 }
