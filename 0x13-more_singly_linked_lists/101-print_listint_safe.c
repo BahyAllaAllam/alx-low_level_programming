@@ -3,17 +3,17 @@
 #include <stdio.h>
 
 /**
- * r - check the code
+ * rm - check the code
  * @list: head
  * @size: size
  * @new: new
  *
  * Return: Always 0.
 */
-const listint_t **r(const listint_t **list, size_t size, const listint_t *new)
+const listint_t **rm(const listint_t **list, size_t size, const listint_t *new)
 {
 	const listint_t **new_list;
-	size_t i = 0;
+	size_t i;
 
 	new_list = malloc(size * sizeof(listint_t *));
 	if (new_list == NULL)
@@ -21,10 +21,9 @@ const listint_t **r(const listint_t **list, size_t size, const listint_t *new)
 		free(list);
 		exit(98);
 	}
-	while (i < size - 1)
+	for (i = 0; i < size - 1; i++)
 	{
 		new_list[i] = list[i];
-		i++;
 	}
 	new_list[i] = new;
 	free(list);
@@ -38,12 +37,12 @@ const listint_t **r(const listint_t **list, size_t size, const listint_t *new)
 */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i = 0, num = 0;
+	size_t i, num = 0;
 	const listint_t **list = NULL;
 
 	while (head != NULL)
 	{
-		while (i < num)
+		for (i = 0; i < num; i++)
 		{
 			if (head == list[i])
 			{
@@ -51,10 +50,9 @@ size_t print_listint_safe(const listint_t *head)
 				free(list);
 				return (num);
 			}
-			i++;
 		}
 		num++;
-		list = r(list, num, head);
+		list = rm(list, num, head);
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next
 	}
