@@ -3,12 +3,12 @@
 #include <stdlib.h>
 
 /**
- * find_listint_loop - check the code
+ * find_listint_loop_v1 - check the code
  * @head: h
  *
  * Return: Always 0.
 */
-listint_t *find_listint_loop(listint_t *head)
+listint_t *find_listint_loop_v1(listint_t *head)
 {
 	listint_t *ptr, *end;
 
@@ -40,7 +40,7 @@ size_t free_listint_safe(listint_t **h)
 
 	if (!h || !*h)
 		return (0);
-	loop_node = find_listint_loop(*h);
+	loop_node = find_listint_loop_v1(*h);
 	for (len = 0; (*h != loop_node || loop) && *h != NULL; *h = t)
 	{
 		len++;
