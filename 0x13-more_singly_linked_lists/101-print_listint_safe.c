@@ -3,31 +3,43 @@
 #include <stdio.h>
 
 /**
- * rm - check the code
- * @list: head
- * @size: size
+ * looped_listint_len - check the code
  * @new: new
  *
  * Return: Always 0.
 */
-const listint_t **rm(const listint_t **list, size_t size, const listint_t *new)
+size_t looped_listint_len(const listint_t *new)
 {
-	const listint_t **new_list;
-	size_t i;
+	const listint_t *new_list, *list_new;
+	size_t i = 1;
 
-	new_list = malloc(size * sizeof(listint_t *));
-	if (new_list == NULL)
+	if (new == NULL || new->next == NULL)
+		return (0);
+	new_list = new->next;
+	list_new = new_list->next
+	while (list_new)
 	{
-		free(list);
-		exit(98);
+		if (new_list == list_new)
+		{
+			new_list = new;
+			while (new_list != list_new)
+			{
+				i++;
+				new_list = new_list->next;
+				list_new = list_new->next;
+			}
+			new_list = new_list->next;
+			while (new_list != list_new)
+			{
+				i++;
+				new_list = new_list->next;
+			}
+			return (i);
+		}
+		new_list = new_list->next;
+		list_new = (list_new->next)->next;
 	}
-	for (i = 0; i < size - 1; i++)
-	{
-		new_list[i] = list[i];
-	}
-	new_list[i] = new;
-	free(list);
-	return (new_list);
+	return (0);
 }
 /**
  * print_listint_safe - check the code
@@ -38,24 +50,24 @@ const listint_t **rm(const listint_t **list, size_t size, const listint_t *new)
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i, num = 0;
-	const listint_t **list = NULL;
 
-	while (head != NULL)
+	i = looped_listint_len(head);
+	if (i == 0)
 	{
-		for (i = 0; i < num; i++)
+		for (; head != NULL; i++)
 		{
-			if (head == list[i])
-			{
-				printf("-> [%p] %d\n", (void *)head, head->n);
-				free(list);
-				return (num);
-			}
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
 		}
-		num++;
-		list = rm(list, num, head);
-		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next
 	}
-	free(list);
-	return (num);
+	else
+	{
+		for (num = 0; num < i; num++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
+		printf("-> [%p] %d\n", (void *)head, head->n);
+	}
+	return (i);
 }
