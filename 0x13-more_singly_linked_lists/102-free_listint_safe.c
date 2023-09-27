@@ -38,7 +38,7 @@ size_t free_listint_safe(listint_t **h)
 	size_t len;
 	int loop = 1;
 
-	if (!h || !*h)
+	if (h == NULL || *h == NULL)
 		return (0);
 	loop_node = find_listint_loop_v1(*h);
 	for (len = 0; (*h != loop_node || loop) && *h != NULL; *h = t)
@@ -53,7 +53,7 @@ size_t free_listint_safe(listint_t **h)
 				break;
 			}
 			len++;
-			t = next->next;
+			t = t->next;
 			free((*h)->next);
 			loop = 0;
 		}
