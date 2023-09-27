@@ -3,43 +3,29 @@
 #include <stdio.h>
 
 /**
- * looped_listint_len - check the code
+ * r - check the code
+ * @list: list
+ * @size: size
  * @new: new
  *
  * Return: Always 0.
 */
-size_t looped_listint_len(const listint_t *new)
+const listint_t **r(const listint_t **list, size_t size, const listint_t *new)
 {
-	const listint_t *new_list, *list_new;
-	size_t i = 1;
+	const listint_t **new_list;
+	size_t i;
 
-	if (new == NULL || new->next == NULL)
-		return (0);
-	new_list = new->next;
-	list_new = new_list->next
-	while (list_new)
+	new_list = malloc(size * sizeof(listint_t *));
+	if (new_list == NULL)
 	{
-		if (new_list == list_new)
-		{
-			new_list = new;
-			while (new_list != list_new)
-			{
-				i++;
-				new_list = new_list->next;
-				list_new = list_new->next;
-			}
-			new_list = new_list->next;
-			while (new_list != list_new)
-			{
-				i++;
-				new_list = new_list->next;
-			}
-			return (i);
-		}
-		new_list = new_list->next;
-		list_new = (list_new->next)->next;
+		free(list);
+		exit(98);
 	}
-	return (0);
+	for (i = 0; i < size - 1; i++)
+		new_list[i] = list[i];
+	new_list[i] = new;
+	free(list);
+	return (new_list);
 }
 /**
  * print_listint_safe - check the code
@@ -50,24 +36,24 @@ size_t looped_listint_len(const listint_t *new)
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i, num = 0;
+	const listint_t **list = NULL;
 
-	i = looped_listint_len(head);
-	if (i == 0)
+	while (head != NULL)
 	{
-		for (; head != NULL; i++)
+		for (i = 0; i < num; i++)
 		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
+			if (head == list[i])
+			{
+				printf("-> [%p] %d\n", (void *)head, head->n);
+				free(list);
+				return (num);
+			}
 		}
+		num++;
+		list = r(list, num, head);
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
 	}
-	else
-	{
-		for (num = 0; num < i; num++)
-		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
-		}
-		printf("-> [%p] %d\n", (void *)head, head->n);
-	}
-	return (i);
+	free(list);
+	return (num);
 }
