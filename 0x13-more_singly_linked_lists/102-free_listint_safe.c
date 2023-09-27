@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * find_listint_loop - check the code
@@ -19,7 +21,7 @@ listint_t *find_listint_loop(listint_t *head)
 		for (ptr = head; ptr != end; ptr = ptr->next)
 		{
 			if (ptr == end->next)
-				return (end->next)
+				return (end->next);
 		}
 	}
 	return (NULL);
