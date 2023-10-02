@@ -5,6 +5,7 @@
 #define ERR_NOWRITE "Error: Can't write to %s\n"
 #define ERR_NOCLOSE "Error: Can't close fd %d\n"
 #define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
+
 /**
  * main - check the code
  * @ac: ac
@@ -19,7 +20,7 @@ int main(int ac, char **av)
 	char buf[READ_BUF_SIZE];
 
 	if (ac != 3)
-		dpeintf(STDERR_FILENO, USAGE), exit(97);
+		dprintf(STDERR_FILENO, USAGE), exit(97);
 	from_fd = open(av[1], O_RDONLY);
 	if (from_fd == -1)
 		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
