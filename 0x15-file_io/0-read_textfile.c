@@ -13,8 +13,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t len;
 	char buf[READ_BUF_SIZE * 8];
 
+	if (!filename || !letters)
+		return (0);
+
 	f = open(filename, O_RDONLY);
-	if (!filename && f == -1 && !letters)
+	if (f == -1)
 		return (0);
 
 	len = read(f, &buf[0], letters);
