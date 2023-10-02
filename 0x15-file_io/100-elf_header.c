@@ -239,9 +239,11 @@ int main(int ac, char **av)
 	b = read(fd, &h, sizeof(h));
 	if (b < 1 || b != sizeof(h))
 		dprintf(STDERR_FILENO, "Can't read from file: %s\n", av[1]), exit(98);
-	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' &&
-			h.e_ident[2] == 'L' && h.e_ident[3] == 'F')
+	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
+			h.e_ident[3] == 'F')
+	{
 		printf("ELF Header:\n");
+	}
 	else
 		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
 	print_magic(h);
