@@ -2,6 +2,7 @@
 #include <elf.h>
 
 void print_osabi_more(Elf64_Ehdr h);
+
 /**
  * print_magic - print_magic
  * @h: h
@@ -25,13 +26,13 @@ void print_class(Elf64_Ehdr h)
 	{
 		case ELFCLASS64:
 			printf("ELF64");
-		break;
+			break;
 		case ELFCLASS32:
 			printf("ELF32");
-		break;
+			break;
 		case ELFCLASSNONE:
 			printf("none");
-		break;
+			break;
 	}
 	printf("\n");
 }
@@ -46,13 +47,13 @@ void print_data(Elf64_Ehdr h)
 	{
 		case ELFDATA2MSB:
 			printf("2's complement, big endian");
-		break;
+			break;
 		case ELFDATA2LSB:
 			printf("2's complement, little endian");
-		break;
+			break;
 		case ELFDATANONE:
 			printf("none");
-		break;
+			break;
 	}
 	printf("\n");
 }
@@ -67,10 +68,10 @@ void print_version(Elf64_Ehdr h)
 	{
 		case EV_CURRENT:
 			printf(" (current)");
-		break;
+			break;
 		case EV_NONE:
 			printf("%s", "");
-		break;
+			break;
 		break;
 	}
 	printf("\n");
@@ -173,7 +174,7 @@ void print_type(Elf64_Ehdr h)
 			break;
 		case ET_EXEC:
 			printf("EXEC (Excutable file)");
-			berak;
+			break;
 		case ET_DYN:
 			printf("DYN (Shared object file)");
 			break;
@@ -193,10 +194,10 @@ void print_type(Elf64_Ehdr h)
 void print_entry(Elf64_Ehdr h)
 {
 	int i = 0, len = 0;
-	unsigned char *p = (unsigned cahr *)&h.e_entry;
+	unsigned char *p = (unsigned char *)&h.e_entry;
 
 	printf("  Entry point address:               0x");
-	if (h.e_ident[EI_DATA] != ELFDATA@MSB)
+	if (h.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
 		i = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!p[i])
@@ -253,6 +254,6 @@ int main(int ac, char **av)
 	print_type(h);
 	print_entry(h);
 	if (close(fd))
-		dprintf(STDERR_FILENO, "Error closing the file: %d\n", fd), exit(98);
+		dprintf(STDERR_FILENO, "Error closing file descriptor: %d\n", fd), exit(98);
 	return (EXIT_SUCCESS);
 }
