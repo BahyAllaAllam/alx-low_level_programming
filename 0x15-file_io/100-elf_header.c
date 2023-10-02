@@ -21,7 +21,7 @@ void print_magic(Elf64_Ehdr h)
 */
 void print_class(Elf64_Ehdr h)
 {
-	printf("  Class:                             ")
+	printf("  Class:                             ");
 	switch (h.e_ident[EI_CLASS])
 	{
 		case ELFCLASS64:
