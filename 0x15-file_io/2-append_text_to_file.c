@@ -1,5 +1,20 @@
 #include "main.h"
+/**
+ * str_len - str_len
+ * @s: s
+ *
+ * Return: int
+*/
+int str_len(char *s)
+{
+	int i = 0;
 
+	if (!s)
+		return (0);
+	while (*s++)
+		i++;
+	return (i);
+}
 /**
  * append_text_to_file - check the code
  * @filename: filename
@@ -10,15 +25,15 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int f;
-	ssize_t len = 0, str_len = strlen(text_content);
+	ssize_t len = 0, sttrlen = str_len(text_content);
 
 	if (!filename)
 		return (-1);
 	f = open(filename, O_WRONLY | O_APPEND);
 	if (f == -1)
 		return (-1);
-	if (str_len)
-		len = write(f, text_content, str_len);
+	if (sttrlen)
+		len = write(f, text_content, sttrlen);
 	close(f);
-	return (len == str_len ? 1 : -1);
+	return (len == sttrlen ? 1 : -1);
 }
