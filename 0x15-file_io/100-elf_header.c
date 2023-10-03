@@ -172,7 +172,7 @@ void print_type(Elf64_Ehdr h)
 			printf("REL (Relocatable file)");
 			break;
 		case ET_EXEC:
-			printf("EXEC (Excutable file)");
+			printf("EXEC (Executable file)");
 			break;
 		case ET_DYN:
 			printf("DYN (Shared object file)");
