@@ -1,23 +1,22 @@
 #include "main.h"
-
 /**
  * binary_to_uint - check the code
- * @b: b
+ * @a: a
  *
  * Return: Always 0.
 */
-unsigned int binary_to_uint(const char *b)
+unsigned int binary_to_uint(const char *a)
 {
-	unsigned int sum = 0;
+	unsigned int m = 0;
 
-	if (!b)
+	if (!a)
 		return (0);
-	while (*b)
+	while (*a)
 	{
-		if (*b != '0' && *b != '1')
+		if (*a != '0' && *a != '1')
 			return (0);
-		sum = sum * 2  + (*b - '0');
-		b++;
+		m = m * 2  + (*a - '0');
+		a++;
 	}
-	return (sum);
+	return (m);
 }
