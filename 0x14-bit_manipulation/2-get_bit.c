@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * get_bit - check the code
  * @n: n
