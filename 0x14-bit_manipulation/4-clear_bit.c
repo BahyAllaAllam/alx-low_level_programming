@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * clear_bit - check the code
  * @n: n
