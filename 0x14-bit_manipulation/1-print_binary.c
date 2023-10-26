@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * print_binary - check the code
  * @n: n
