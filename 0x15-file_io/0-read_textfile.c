@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * read_textfile - check the code
  * @filename: filename
