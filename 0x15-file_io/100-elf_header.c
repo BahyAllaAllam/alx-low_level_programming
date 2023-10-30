@@ -7,6 +7,7 @@ void print_osabi_more(Elf64_Ehdr h);
  * print_magic - print_magic
  * @h: h
 */
+
 void print_magic(Elf64_Ehdr h)
 {
 	int i;
@@ -15,10 +16,12 @@ void print_magic(Elf64_Ehdr h)
 	for (i = 0; i < EI_NIDENT; i++)
 		printf("%2.2x%s", h.e_ident[i], i == EI_NIDENT - 1 ? "\n" : " ");
 }
+
 /**
  * print_class - p
  * @h: h
 */
+
 void print_class(Elf64_Ehdr h)
 {
 	printf("  Class:                             ");
@@ -36,10 +39,12 @@ void print_class(Elf64_Ehdr h)
 	}
 	printf("\n");
 }
+
 /**
  * print_data - p
  * @h: h
 */
+
 void print_data(Elf64_Ehdr h)
 {
 	printf("  Data:                              ");
@@ -57,10 +62,12 @@ void print_data(Elf64_Ehdr h)
 	}
 	printf("\n");
 }
+
 /**
  * print_version - p
  * @h: h
 */
+
 void print_version(Elf64_Ehdr h)
 {
 	printf("  Version:                           %d", h.e_ident[EI_VERSION]);
@@ -76,10 +83,12 @@ void print_version(Elf64_Ehdr h)
 	}
 	printf("\n");
 }
+
 /**
  * print_osabi - osabi
  * @h: h
 */
+
 void print_osabi(Elf64_Ehdr h)
 {
 	printf("  OS/ABI:                            ");
@@ -118,10 +127,12 @@ void print_osabi(Elf64_Ehdr h)
 	}
 	printf("\n");
 }
+
 /**
  * print_osabi_more - osabi
  * @h: h
 */
+
 void print_osabi_more(Elf64_Ehdr h)
 {
 	switch (h.e_ident[EI_OSABI])
@@ -143,18 +154,22 @@ void print_osabi_more(Elf64_Ehdr h)
 			break;
 	}
 }
+
 /**
  * print_abiversion - p
  * @h: h
 */
+
 void print_abiversion(Elf64_Ehdr h)
 {
 	printf("  ABI Version:                       %d\n", h.e_ident[EI_ABIVERSION]);
 }
+
 /**
  * print_type - p
  * @h: h
 */
+
 void print_type(Elf64_Ehdr h)
 {
 	char *p = (char *)&h.e_type;
@@ -186,10 +201,12 @@ void print_type(Elf64_Ehdr h)
 	}
 	printf("\n");
 }
+
 /**
  * print_entry - p
  * @h: h
 */
+
 void print_entry(Elf64_Ehdr h)
 {
 	int i = 0, len = 0;
@@ -218,6 +235,7 @@ void print_entry(Elf64_Ehdr h)
 		printf("\n");
 	}
 }
+
 /**
  * main - check code
  * @ac: ac
@@ -225,6 +243,7 @@ void print_entry(Elf64_Ehdr h)
  *
  * Return: 1.
 */
+
 int main(int ac, char **av)
 {
 	int fd;
