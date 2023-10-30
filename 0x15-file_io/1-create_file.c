@@ -1,10 +1,12 @@
 #include "main.h"
+
 /**
  * str_len - str_len
  * @s: s
  *
  * Return: int
 */
+
 int str_len(char *s)
 {
 	int i = 0;
@@ -15,6 +17,7 @@ int str_len(char *s)
 		i++;
 	return (i);
 }
+
 /**
  * create_file - check the code
  * @filename: filename
@@ -22,6 +25,7 @@ int str_len(char *s)
  *
  * Return: Always 0.
 */
+
 int create_file(const char *filename, char *text_content)
 {
 	int f;
