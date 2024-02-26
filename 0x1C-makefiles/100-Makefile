@@ -7,11 +7,8 @@ RM = /bin/rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-
-$(OBJ): $(SRC) m.h
-	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) *~ $(NAME)
@@ -20,7 +17,6 @@ oclean:
 	$(RM) $(OBJ)
 
 fclean: clean oclean
-	$(RM) $(NAME)
 
 re: fclean all
 
